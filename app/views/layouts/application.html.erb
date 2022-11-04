@@ -83,15 +83,20 @@
         </div>
       </nav>
     </header>
-    <%= yield %>
-  </body>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto">
-          <p>CopyRight Infratop.inc</p>
+    <div class="body">
+      <p class="notice"><%= notice %></p>
+
+      <%= yield %>
+      <footer>
+        <div class="container mt-5 add">
+          <div class="row">
+            <div class="mx-auto">
+              <p>CopyRight Infratop.inc</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
-  </footer>
+  </body>
+
 </html>
