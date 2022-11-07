@@ -1,2 +1,37 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>User info</h2>
+
+        <% if @user.errors.any? %>
+          <h4><%= @user.errors.count %> error prohibited this obj from being saved:</h4>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <!--プロフィール編集フォーム-->
+        <%= form_with model:@user, local:true do |f| %>
+          <div class="field row">
+            <%= f.label :Name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="field row">
+            <%= f.label :Image %>
+            <%= f.file_field :profile_image, placeholder: "Image", class: "form-control-file" %>
+          </div>
+          <div class="field row">
+            <%= f.label :Introduction %>
+            <%= f.text_area :introduction, class: "form-control" %>
+          </div>
+          <div class="actions row">
+            <%= f.submit class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
