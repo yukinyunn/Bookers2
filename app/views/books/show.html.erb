@@ -28,6 +28,15 @@
                 <%= @book.body %>
               </td>
 
+              <!--いいねの部分テンプレート-->
+              <td>
+                <%= render 'favorites/favorite', book: @book %>
+              </td>
+
+              <td>
+                コメント数：<%= @book.book_comments.count %>
+              </td>
+
               <td>
                 <% if @book.user == current_user %>
                   <%= link_to edit_book_path(@book), class: "btn btn-sm btn-success" do %>
@@ -47,6 +56,19 @@
             </tr>
           </tbody>
         </table>
+
+        <!--コメントの表示-->
+        <table>
+          <tbody id="comment_area">
+            <%= render 'book_comments/comment', book: @book %>
+          </tbody>
+        </table>
+
+        <!--コメント入力フォーム-->
+        <div  id="comment_form">
+          <%= render 'book_comments/comment_form', book: @book, comment: @comment %>
+        </div>
+
       </div>
     </div>
 
